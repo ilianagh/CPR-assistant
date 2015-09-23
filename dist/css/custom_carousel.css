@@ -1,0 +1,57 @@
+/*body { padding-top: 50px; }*/
+
+.main-header .logo, .navbar-link {
+    width:auto !important;
+    color:white;
+}
+
+#myCarousel .carousel-caption {
+    left:0;
+    right:0;
+    bottom:0;
+    text-align:left;
+    padding:10px;
+    background:rgba(63,63,63,0.6);
+    text-shadow:none;
+}
+
+#myCarousel .list-group {
+    position:absolute;
+    top:0;
+    right:0;
+}
+#myCarousel .list-group-item {
+    border-radius:0px;
+    cursor:pointer;
+}
+#myCarousel .list-group .active {
+    background-color:#eee;  
+}
+
+#myCarousel h4,li{
+    color:black;
+    vertical-align: middle;
+}
+
+@media (min-width: 992px) { 
+    #myCarousel {padding-right:33.3333%;}
+    #myCarousel .carousel-controls {display:none;}  
+}
+@media (max-width: 991px) { 
+    .carousel-caption p,
+    #myCarousel .list-group {display:none;} 
+}
+
+h4{
+    display: inline-block;
+}
+
+.fa{
+    margin-right:.2em;
+    position:relative;
+    top: .1em;
+}
+
+.list-group{
+    padding-right: 0px !important;
+}
