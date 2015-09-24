@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>RCP | Equipo 6</title>
+  <title>RCP Asistente</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.5 -->
@@ -37,20 +37,18 @@
         <!--Content-->
         <div class="row">
           <div class="col-md-6 col-xs-6">
-            <div class="box box-primary">
+            <div class="box box-danger">
               <div class="box-header with-border text-center">
-                <i class="fa fa-user"></i>
-                <h3 class="box-title ">Bebes e Infantes</h3>
+                <h3 class="box-title ">Bebés e Infantes</h3>
               </div><!-- /.box-header -->
-              <div id="baby" name="baby" class="box-body bg-blue">
+              <div id="baby" name="baby" class="box-body bg-blue2">
                 <img src="./img/baby.png" height="70%" width="70%">
               </div><!-- /.box-body -->
             </div><!-- /.box -->
           </div><!-- /.col -->
           <div class="col-md-6 col-xs-6">
-            <div class="box box-primary">
+            <div class="box box-danger">
               <div class="box-header with-border text-center">
-                <i class="fa fa-users"></i>
                 <h3 class="box-title">Niños y Adultos</h3>
               </div><!-- /.box-header -->
               <div id="man" name="man" class="box-body bg-purple">
@@ -64,7 +62,7 @@
           <div class="col-md-offset-4 col-xs-offset-2 col-md-8">
             <div class="checkbox">
               <label style="font-size: 2.5em">
-                <input name="instrucciones" type="checkbox" value="" checked>
+                <input id="idInstrucciones" name="instrucciones" type="checkbox" value="">
                 <span class="cr text-green"><i class="cr-icon fa fa-check"></i></span>
                 Ver las instrucciones
               </label>
@@ -77,9 +75,7 @@
           <a id="2back" class="btn btn-lg btn-info"><i class="glyphicon glyphicon-menu-left"></i>Paso Anterior</a>
           <a id="2next" class="btn btn-lg btn-info">Paso Siguiente<i class="glyphicon glyphicon-menu-right"></i></a>
         </div>
-        <div class="content container">
       <p class="titulo">Instrucciones</p>
-          <div class="section" id="section1">
       <div class="box-body">
       <div class="col-md-12 col-sm-6 col-xs-12">
                 <div class="info-box box-pasouno">
@@ -131,27 +127,6 @@
            <p class="textoPaso"> Comenzar compresiones y ventilaciones.</p>
                   </div><!-- /.info-box-content -->
                 </div><br/><!-- /.info-box -->
-        <!-- <div class="block-pasos box-pasos box-pasouno">
-          <span class="info-box-icon"><i class="fa fa-eye fa-6x"></i></span> <p class="textoPaso"> Valorar seguridad de la escena.</p>
-        </div><br/>
-        <div class="block-pasos box-pasos box-pasodos">
-          <i class="fa fa-phone"></i> <p class="textoPaso">Activar sistema de emergencias (066).</p>
-        </div><br/>
-        <div class="block-pasos box-pasos box-pasotres">
-          <i class="fa fa-heartbeat"></i> <p class="textoPaso">Identificar mediante VOS (VER, OIR, SENTIR) <br/> que la persona no tenga pulso.</p>
-        </div><br/>
-        <div class="block-pasos box-pasos box-pasocuatro">
-          <i class="fa fa-child"></i> <p class="textoPaso">Colocar al adulto/niño en el piso <br/>o al bebé en una mesa plana y estable.</p>
-        </div><br/>
-        <div class="block-pasos box-pasos box-pasocinco">
-          <i class="fa fa-male"></i> <p class="textoPaso">Descubrir el pecho.</p>
-        </div><br/>
-        <div class="block-pasos box-pasos box-pasoseis">
-          <i class="fa fa-thumbs-up"></i> <p class="textoPaso">Colocar las manos entrelazadas para adulto/niño o <br/>solo dos dedos para el bebé, en medio de las tetillas.</p>
-        </div><br/>
-        <div class="block-pasos box-pasos box-pasosiete">
-          <i class="fa fa-heart"></i> <p class="textoPaso">Comenzar compresiones y ventilaciones.</p>
-        </div><br/>-->
       <div class="box box-danger botonComenzar" onclick="comenzarRCP()">
         <div class="box-header with-border text-center">
           <h3 class="box-title">Comenzar RCP</h3>
@@ -159,8 +134,6 @@
              </div>
          </div>
         </div>
-          </div><!--End section1-->
-        </div><!--End Content container-->
       </div><!--End Section2-->
 
 
@@ -175,7 +148,7 @@
         </div>
 
         <div class="row">
-          <div class="col-md-offset-4 col-xs-offset-2 col-md-8">
+          <div class="heart_col col-md-offset-2 col-md-8">
             <div>
               <p id="cicloNum" class="titulo" >Ciclo </p>
               <p id="num" class="titulo">Compresión </p>
@@ -192,7 +165,7 @@
         </div>
 
         <div class="row">
-          <div id="heart_col" class="col-md-offset-5 col-xs-offset-2 col-md-8">
+          <div class="heart_col col-md-offset-5 col-xs-offset-2 col-md-8">
             <i id="icon" class="fa fa-heart text-red"></i>
           </div>
         </div>
@@ -201,14 +174,6 @@
 
     </div><!--End Content container-->
     <!-- jQuery 2.1.4 -->
-    <script>
-      document.getElementById("pasoseis").innerHTML = "Colocar las manos entrelazadas en medio de las tetillas.";
-      //document.getElementById("pasoseis").innerHTML = "Colocar dos dedos en medio de las tetillas.";
-
-      function comenzarRCP() {
-        alert("hola");
-      }
-    </script>
     <script src="./plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="./bootstrap/js/bootstrap.min.js"></script>

@@ -20,6 +20,10 @@ function Exit(){
 	var cic = document.getElementById("cicloNum");
 	cic.innerHTML = "Ciclo " + ciclo;
 
+	document.getElementById("icon").className = "fa fa-heart text-red";
+	clearInterval(beat);
+	beat = setInterval(function(){beating()}, 291.5);
+
 	clearInterval(ventInterval);
 	clearInterval(compInterval);
 }
@@ -29,6 +33,7 @@ function playAdult(){
 	comp = 0;
 	vent = 0;
 	ciclo = 0;
+
 	compInterval=setInterval(function(){playCompAdulto()},583);
 }
 
@@ -45,17 +50,17 @@ function playCompAdulto(){
 		comp += 1;
 
 		var vis = document.getElementById("num");
-		vis.innerHTML = "Compresión " + comp;
+		vis.innerHTML = "Compresión " + '<strong>'+ comp + '</strong>';
 
 
 		var cic = document.getElementById("cicloNum");
-		cic.innerHTML = "Ciclo " + ciclo;
+		cic.innerHTML = "Ciclo " + '<strong>' + ciclo + '</strong>';
 
 		if(comp >= 30){
 			ciclo += 1;
 			clearInterval(compInterval);
 			comp = 0;
-			vis.innerHTML = "Ventilación 1" ;
+			vis.innerHTML = "Ventilación"+ '<strong> 1</strong>';
 			clearInterval(beat);
 
 			if (ciclo % 5 == 0)
@@ -77,7 +82,7 @@ function playVentAdulto(){
 
 		vent+=1;
 		var vis = document.getElementById("num");
-		vis.innerHTML = "Ventilación 2" ;
+		vis.innerHTML = "Ventilación"+ '<strong> 2</strong>';
 
 		if(vent == 2){
 			vent = 0;
@@ -105,16 +110,16 @@ function playCompBebe(){
 		comp += 1;
 
 		var vis = document.getElementById("num");
-		vis.innerHTML = "Compresión " + comp;
+		vis.innerHTML = "Compresión " + '<strong>'+ comp + '</strong>';
 
 
 		var cic = document.getElementById("cicloNum");
-		cic.innerHTML = "Ciclo " + ciclo;
+		cic.innerHTML = "Ciclo " + '<strong>'+ ciclo + '</strong>';
 
 
 		if(comp >= 10){
 			ciclo += 1;
-			vis.innerHTML = "Ventilación 1";
+			vis.innerHTML = "Ventilación"+ '<strong> 1</strong>';
 			clearInterval(compInterval);
 			clearInterval(beat);
 
@@ -144,7 +149,7 @@ function playVentBebe(){
 		vent+=1;
 
 		var vis = document.getElementById("num");
-		vis.innerHTML = "Ventilación 2 " ;
+		vis.innerHTML = "Ventilación"+ '<strong> 2</strong>';
 
 		if(vent == 2){
 			vent = 0;
@@ -167,7 +172,13 @@ function playVentBebe(){
 
 	}
 
-
+function completarInstruccion(v) {
+	if(v == "baby") {
+		document.getElementById("pasoseis").innerHTML = "Colocar dos dedos en medio de las tetillas.";
+	} else {
+		document.getElementById("pasoseis").innerHTML = "Colocar las manos entrelazadas en medio de las tetillas.";
+	}
+}
 
 
 
@@ -191,6 +202,7 @@ function is_checked(victim){
 
 	//////NEXT SECTION
 	if(check_inst){
+		completarInstruccion(victim);
 		$('#section2').show(100);
 	}else{
 		$('#section3').show(100);
@@ -207,6 +219,7 @@ function is_checked(victim){
 function navigation(){
 	$('#2back').click(function(){
 		$('#section2').hide();
+		document.getElementById("idInstrucciones").checked = false;
 		$('#section1').show(100);
 		Exit();
 	});
@@ -225,6 +238,7 @@ function navigation(){
 	});
 	$('#3next').click(function(){
 		$('#section3').hide();
+		document.getElementById("idInstrucciones").checked = false;
 		$('#section1').show(100);
 		Exit();
 	});

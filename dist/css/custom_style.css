@@ -9,11 +9,11 @@
     position: absolute;
     bottom: 15%;
     left:30%;
-    */   
+    */
 }
 
-#heart_col{
-    margin-top: 10%;
+.heart_col{
+    margin-top: 5%;
 }
 
 a{
@@ -33,7 +33,7 @@ img{
 }
 
 /*RadioBox*/
-.checkbox label:after, 
+.checkbox label:after,
 .radio label:after {
     content: '';
     display: table;
