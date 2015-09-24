@@ -39,7 +39,7 @@ function playCompAdulto(){
 			clearInterval(compInterval);
 			comp = 0;
 			vis.innerHTML = "Compresión " + comp;
-			ventInterval = setInterval(function(){playVentAdulto()},3000);
+			ventInterval = setInterval(function(){playVentAdulto()},4000);
 
 		}
 	}
