@@ -8,6 +8,23 @@ var vent = 0;
 var ciclo = 0;
 var ventInterval;
 
+
+
+function Exit(){
+	comp = 0;
+	ciclo = 0;
+	var vis = document.getElementById("num");
+	vis.innerHTML = "Compresión " + comp;
+
+
+	var cic = document.getElementById("cicloNum");
+	cic.innerHTML = "Ciclo " + ciclo;
+
+	clearInterval(ventInterval);
+	clearInterval(compInterval);
+}
+
+
 function playAdult(){
 	comp = 0;
 	vent = 0;
@@ -38,26 +55,47 @@ function playCompAdulto(){
 			ciclo += 1;
 			clearInterval(compInterval);
 			comp = 0;
-			vis.innerHTML = "Compresión " + comp;
-			ventInterval = setInterval(function(){playVentAdulto()},4000);
+			vis.innerHTML = "Ventilación 1" ;
+			clearInterval(beat);
+
+			if (ciclo % 5 == 0)
+			{
+
+				//checar pulso
+				document.getElementById("icon").className = "fa fa-hand-scissors-o text-red";
+				var vis = document.getElementById("num");
+				vis.innerHTML +=   " y Revisar pulso";
+			}
+
+			document.getElementById("icon").className = "fa fa-spinner fa-pulse text-red";
+			ventInterval = setInterval(function(){playVentAdulto()},3000);
 
 		}
 	}
 
 function playVentAdulto(){
-	if(ciclo == 5)
-	{
-		//checar pulso
-	}
-	var audio = document.getElementById("audio");
-	audio.play();
 
 		vent+=1;
+		var vis = document.getElementById("num");
+		vis.innerHTML = "Ventilación 2" ;
+
 		if(vent == 2){
 			vent = 0;
+			vis.innerHTML = "Compresión ";
 			clearInterval(ventInterval);
+			document.getElementById("icon").className = "fa fa-heart text-red";
+			beat = setInterval(function(){beating()}, 291.5);
 			compInterval= setInterval(function(){playCompAdulto()},583);
 		}
+		else if (ciclo % 5 == 0)
+		{
+
+			//checar pulso
+			document.getElementById("icon").className = "fa fa-hand-scissors-o text-red";
+			var vis = document.getElementById("num");
+			vis.innerHTML += " y Revisar pulso";
+		}
+
 
 	}
 
@@ -76,27 +114,57 @@ function playCompBebe(){
 
 		if(comp >= 10){
 			ciclo += 1;
-			vis.innerHTML = "Compresión " + comp;
+			vis.innerHTML = "Ventilación 1";
 			clearInterval(compInterval);
-			ventInterval = setInterval(function(){playVentBebe()},5000);
+			clearInterval(beat);
+
+			if (ciclo % 10 == 0)
+			{
+
+				//checar pulso
+				document.getElementById("icon").className = "fa fa-hand-scissors-o text-red";
+				var vis = document.getElementById("num");
+				vis.innerHTML +=   " y Revisar pulso";
+			}
+
+
+
+			document.getElementById("icon").className = "fa fa-spinner fa-pulse text-red";
+			ventInterval = setInterval(function(){playVentBebe()},3000);
 		comp = 0;
 		}
+
+
+
+
 	}
 
 function playVentBebe(){
-	if(ciclo == 10)
-	{
-		//checar pulso
-	}
-	var audio = document.getElementById("audio");
-	audio.play();
 
 		vent+=1;
+
+		var vis = document.getElementById("num");
+		vis.innerHTML = "Ventilación 2 " ;
+
 		if(vent == 2){
 			vent = 0;
+			vis.innerHTML = "Compresión ";
 			clearInterval(ventInterval);
+			document.getElementById("icon").className = "fa fa-heart text-red";
+			beat = setInterval(function(){beating()}, 291.5);
 			compInterval= setInterval(function(){playCompBebe()},583);
 		}
+		else if (ciclo % 10 == 0)
+		{
+
+			//checar pulso
+			document.getElementById("icon").className = "fa fa-hand-scissors-o text-red";
+			var vis = document.getElementById("num");
+			vis.innerHTML += " y Revisar pulso";
+		}
+
+
+
 	}
 
 
@@ -126,7 +194,11 @@ function is_checked(victim){
 		$('#section2').show(100);
 	}else{
 		$('#section3').show(100);
-		playAdult();
+		if (victim == "man")
+		{playAdult();}
+		else
+		{playBebe();}
+
 		//timer(victim);
 	}
 }
@@ -136,19 +208,25 @@ function navigation(){
 	$('#2back').click(function(){
 		$('#section2').hide();
 		$('#section1').show(100);
+		Exit();
 	});
 	$('#2next').click(function(){
 		$('#section2').hide();
 		$('#section3').show(100);
-		playAdult();
+		if (victim == "man")
+		{playAdult();}
+		else
+		{playBebe();}
 	});
 	$('#3back').click(function(){
 		$('#section3').hide();
 		$('#section2').show(100);
+		Exit();
 	});
 	$('#3next').click(function(){
 		$('#section3').hide();
 		$('#section1').show(100);
+		Exit();
 	});
 }
 
