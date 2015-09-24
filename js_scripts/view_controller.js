@@ -99,7 +99,13 @@ function playVentBebe(){
 		}
 	}
 
-
+function completarInstruccion(v) {
+	if(v == "baby") {
+		document.getElementById("pasoseis").innerHTML = "Colocar dos dedos en medio de las tetillas.";
+	} else {
+		document.getElementById("pasoseis").innerHTML = "Colocar las manos entrelazadas en medio de las tetillas.";
+	}
+}
 
 
 
@@ -123,6 +129,7 @@ function is_checked(victim){
 
 	//////NEXT SECTION
 	if(check_inst){
+		completarInstruccion(victim);
 		$('#section2').show(100);
 	}else{
 		$('#section3').show(100);
@@ -135,6 +142,7 @@ function is_checked(victim){
 function navigation(){
 	$('#2back').click(function(){
 		$('#section2').hide();
+		document.getElementById("idInstrucciones").checked = false;
 		$('#section1').show(100);
 	});
 	$('#2next').click(function(){
@@ -148,6 +156,7 @@ function navigation(){
 	});
 	$('#3next').click(function(){
 		$('#section3').hide();
+		document.getElementById("idInstrucciones").checked = false;
 		$('#section1').show(100);
 	});
 }
