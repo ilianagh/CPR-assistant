@@ -199,10 +199,10 @@ function is_checked(victim){
 	check_inst = $('input[name=instrucciones]').is(':checked');
 	console.log(check_inst);
 	$('#section1').hide();
+	completarInstruccion(victim);
 
 	//////NEXT SECTION
 	if(check_inst){
-		completarInstruccion(victim);
 		$('#section2').show(100);
 	}else{
 		$('#section3').show(100);
@@ -230,6 +230,11 @@ function navigation(){
 		{playAdult();}
 		else
 		{playBebe();}
+	});
+	$('#22next').click(function(){
+		$('#section2').hide();
+		$('#section3').show(100);
+		playAdult();
 	});
 	$('#3back').click(function(){
 		$('#section3').hide();
