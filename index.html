@@ -88,7 +88,7 @@
     </header><!--End Header-->
     <div class="content container">
       <div class="section active" id="section1">
-        <!--Content-->    
+        <!--Content-->
         <div class="row">
           <div class="col-md-6 col-xs-6">
             <div class="box box-primary">
@@ -132,8 +132,11 @@
           <a id="2next" class="btn btn-lg btn-info">Paso Siguiente<i class="glyphicon glyphicon-menu-right"></i></a>
         </div>
         Contenido de segunda sección
-      </div><!--End Section2--> 
+      </div><!--End Section2-->
+
+
       <div class="section" id="section3" style="display:none">
+
         <div class="row">
           <div class="col-md-offset-4 col-xs-offset-2 col-md-8">
             <a id="3back" class="btn btn-lg btn-info"><i class="glyphicon glyphicon-menu-left pull-left"></i>Ver Instrucciones</a>
@@ -142,12 +145,33 @@
             <a id="stop" class="btn btn-lg btn-info"><i class="glyphicon glyphicon-remove"></i>Parar</a>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col-md-offset-4 col-xs-offset-2 col-md-8">
+            <div>
+              <p id="num">Compresión: </p>
+              <p id="cicloNum">Ciclo: </p>
+            </div>
+
+            <div>
+              <audio id="audio">
+                <source src="horse.ogg" type="audio/ogg">
+                <source src="horse.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+              </audio>
+            </div>
+
+          </div>
+        </div>
+
         <div class="row">
           <div id="heart_col" class="col-md-offset-5 col-xs-offset-2 col-md-8">
             <i id="icon" class="fa fa-heart text-red"></i>
           </div>
         </div>
       </div><!--End Section3-->
+
+
     </div><!--End Content container-->
     <!-- jQuery 2.1.4 -->
     <script src="./plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -158,5 +182,9 @@
     <script src="./js_scripts/view_controller.js"></script>
     <script src="./js_scripts/heartbeat.js"></script>
     <link rel="stylesheet" href="./dist/css/custom_style.css">
+
+
+
+
   </body>
   </html>
