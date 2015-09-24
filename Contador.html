@@ -1,0 +1,104 @@
+ <!DOCTYPE HTML>
+  <html>
+  <head>
+  <title>Audio</title>
+  </head>
+  <body>
+
+    <script>
+      var compInterval;
+      var comp = 0;
+      var vent = 0;
+      var ciclo = 0;
+      var ventInterval;
+
+      function playAdult(){
+        comp = 0;
+        vent = 0;
+        ciclo = 0;
+        compInterval=setInterval(function(){playCompAdulto()},583);
+      }
+
+      function playBebe(){
+        comp = 0;
+        vent = 0;
+        ciclo = 0;
+        compInterval=setInterval(function(){playCompBebe()},583);
+      }
+
+      function playCompAdulto(){
+           var audio = document.getElementById("audio");
+           audio.play();
+           comp += 1;
+
+          var vis = document.getElementById("num");
+          vis.innerHTML = "comp" + comp;
+          if(comp >= 30){
+            ciclo += 1;
+            clearInterval(compInterval);
+            ventInterval = setInterval(function(){playVentAdulto()},5000);
+          comp = 0;
+          }
+        }
+
+      function playVentAdulto(){
+        if(ciclo == 5)
+        {
+          //checar pulso
+        }
+         var audio = document.getElementById("audio");
+         audio.play();
+          var vis = document.getElementById("ventNum");
+          vent+=1;
+          if(vent == 2){
+            vent = 0;
+            clearInterval(ventInterval);
+            compInterval= setInterval(function(){playCompAdulto()},583);
+          }
+          num.innerHTML = comp;
+        }
+
+      function playCompBebe(){
+           var audio = document.getElementById("audio");
+           audio.play();
+           comp += 1;
+
+          var vis = document.getElementById("num");
+          vis.innerHTML = "comp" + comp;
+          if(comp >= 10){
+            ciclo += 1;
+            vis.innerHTML = "ENTRA" + comp;
+            clearInterval(compInterval);
+            ventInterval = setInterval(function(){playVentBebe()},5000);
+          comp = 0;
+          }
+        }
+
+      function playVentBebe(){
+        if(ciclo == 10)
+        {
+          //checar pulso
+        }
+         var audio = document.getElementById("audio");
+         audio.play();
+          var vis = document.getElementById("ventNum");
+          vent+=1;
+          if(vent == 2){
+            vent = 0;
+            clearInterval(ventInterval);
+            compInterval= setInterval(function(){playCompBebe()},583);
+          }
+          num.innerHTML = comp;
+        }
+   </script>
+
+<audio id="audio">
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<p id="num"></p>
+<p id="ventNum"></p>
+ </body>
+ </html>
