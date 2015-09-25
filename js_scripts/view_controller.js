@@ -1,18 +1,15 @@
 var check_inst=true;
 var victim = "";
 
-
 var compInterval;
 var comp = 0;
 var vent = 0;
-var ciclo = 0;
+var ciclo = 1;
 var ventInterval;
-
-
 
 function Exit(){
 	comp = 0;
-	ciclo = 0;
+	ciclo = 1;
 	var vis = document.getElementById("num");
 	vis.innerHTML = "Compresión " + comp;
 
@@ -32,7 +29,7 @@ function Exit(){
 function playAdult(){
 	comp = 0;
 	vent = 0;
-	ciclo = 0;
+	ciclo = 1;
 
 	compInterval=setInterval(function(){playCompAdulto()},583);
 }
@@ -40,7 +37,7 @@ function playAdult(){
 function playBebe(){
 	comp = 0;
 	vent = 0;
-	ciclo = 0;
+	ciclo = 1;
 	compInterval=setInterval(function(){playCompBebe()},583);
 }
 
@@ -63,7 +60,7 @@ function playCompAdulto(){
 			vis.innerHTML = "Ventilación"+ '<strong> 1</strong>';
 			clearInterval(beat);
 
-			if (ciclo % 5 == 0)
+			if ((ciclo-1) % 5 == 0)
 			{
 
 				//checar pulso
@@ -92,7 +89,7 @@ function playVentAdulto(){
 			beat = setInterval(function(){beating()}, 291.5);
 			compInterval= setInterval(function(){playCompAdulto()},583);
 		}
-		else if (ciclo % 5 == 0)
+		else if ((ciclo-1) % 5 == 0)
 		{
 
 			//checar pulso
@@ -123,7 +120,7 @@ function playCompBebe(){
 			clearInterval(compInterval);
 			clearInterval(beat);
 
-			if (ciclo % 10 == 0)
+			if ((ciclo-1) % 10 == 0)
 			{
 
 				//checar pulso
@@ -159,7 +156,7 @@ function playVentBebe(){
 			beat = setInterval(function(){beating()}, 291.5);
 			compInterval= setInterval(function(){playCompBebe()},583);
 		}
-		else if (ciclo % 10 == 0)
+		else if ((ciclo-1) % 10 == 0)
 		{
 
 			//checar pulso
